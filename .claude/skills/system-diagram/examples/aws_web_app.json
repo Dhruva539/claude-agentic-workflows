@@ -1,0 +1,30 @@
+{
+  "title": "Web app on AWS",
+  "direction": "LR",
+  "nodes": [
+    {"id": "user", "label": "Users", "icon": "users"},
+    {"id": "cdn", "label": "CloudFront", "icon": "cloudfront"},
+    {"id": "waf", "label": "WAF", "icon": "waf"},
+    {"id": "alb", "label": "Application\nLoad Balancer", "icon": "alb"},
+    {"id": "api", "label": "ECS Fargate\nAPI", "icon": "fargate"},
+    {"id": "db", "label": "Aurora", "icon": "aurora"},
+    {"id": "cache", "label": "ElastiCache", "icon": "redis"},
+    {"id": "queue", "label": "SQS", "icon": "sqs"},
+    {"id": "worker", "label": "Lambda\nworker", "icon": "lambda"},
+    {"id": "s3", "label": "S3 bucket", "icon": "s3"}
+  ],
+  "groups": [
+    {"id": "vpc", "label": "VPC", "members": ["alb", "api", "db", "cache"]}
+  ],
+  "edges": [
+    {"from": "user", "to": "cdn", "label": "HTTPS", "step": 1},
+    {"from": "cdn", "to": "waf", "step": 2},
+    {"from": "waf", "to": "alb", "step": 3},
+    {"from": "alb", "to": "api", "step": 4},
+    {"from": "api", "to": "cache", "label": "read", "step": 5},
+    {"from": "api", "to": "db", "label": "SQL", "step": 5},
+    {"from": "api", "to": "queue", "label": "enqueue", "step": 6},
+    {"from": "queue", "to": "worker", "step": 7},
+    {"from": "worker", "to": "s3", "label": "store", "step": 8}
+  ]
+}
