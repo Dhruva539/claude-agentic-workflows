@@ -26,3 +26,39 @@ flowing dashes, moving packet dot, node pulse).
     python .claude/skills/system-diagram/scripts/animate_svg.py spec.json out/diagram.svg out/diagram.animated.svg
 
 Or ask Claude Code to draw an architecture and it follows `SKILL.md`.
+
+## loan-application-graph
+
+A runnable LangGraph example: parallel checks, rule-based routing, two human
+pauses, and saved state so a paused case can resume later or after a restart.
+No API key needed (the data and letters are fake).
+
+- Skill: `.claude/skills/loan-application-graph/` (see `SKILL.md`)
+- Graph, generated from the code (dashed = conditional edges; `underwriter` and
+  `approve_offer` are the human pauses):
+
+```mermaid
+graph TD;
+	start([start]) --> intake
+	intake --> check_id
+	intake --> check_income
+	intake --> check_credit
+	check_id --> risk_rules
+	check_income --> risk_rules
+	check_credit --> risk_rules
+	risk_rules -.-> draft_offer
+	risk_rules -.-> draft_decline
+	risk_rules -.-> underwriter
+	underwriter -.-> draft_offer
+	underwriter -.-> draft_decline
+	draft_offer -.-> approve_offer
+	draft_offer -.-> send
+	approve_offer -.-> send
+	approve_offer -.-> draft_decline
+	draft_decline --> send
+	send --> done([end])
+```
+
+    pip install langgraph langgraph-checkpoint-sqlite
+    python .claude/skills/loan-application-graph/scripts/loan_graph.py start A-100
+    python .claude/skills/loan-application-graph/scripts/loan_graph.py resume A-100 approve
