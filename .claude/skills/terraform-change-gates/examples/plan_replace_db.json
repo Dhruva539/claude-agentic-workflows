@@ -1,0 +1,9 @@
+{
+  "resource_changes": [
+    {"address": "aws_db_instance.orders", "type": "aws_db_instance",
+     "change": {"actions": ["delete", "create"],
+                "after": {"engine": "postgres", "engine_version": "16.3", "storage_encrypted": true}}},
+    {"address": "aws_db_parameter_group.orders", "type": "aws_db_parameter_group",
+     "change": {"actions": ["update"], "after": {"family": "postgres16"}}}
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "resource_changes": [
+    {"address": "aws_vpc.main", "type": "aws_vpc",
+     "change": {"actions": ["no-op"], "after": {}}}
+  ]
+}

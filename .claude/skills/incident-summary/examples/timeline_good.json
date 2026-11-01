@@ -1,0 +1,14 @@
+[
+  {"time": "2026-10-29T02:01:12Z", "service": "deploy-bot", "log_line_id": "L-1001",
+   "what_happened": "payments-api v2.41.0 deployed with connection pool max cut from 20 to 5"},
+  {"time": "2026-10-29T02:03:40Z", "service": "payments-api", "log_line_id": "L-1002",
+   "what_happened": "Requests began timing out waiting for a database connection"},
+  {"time": "2026-10-29T02:04:05Z", "service": "payments-api", "log_line_id": "L-1003",
+   "what_happened": "Charge requests returned 504 with p99 latency above 31 seconds"},
+  {"time": "2026-10-29T02:04:30Z", "service": "alertmanager", "log_line_id": "L-1004",
+   "what_happened": "PaymentsLatencyHigh alert fired"},
+  {"time": "2026-10-29T02:09:10Z", "service": "oncall", "log_line_id": "L-1005",
+   "what_happened": "Rollback to v2.40.3 started"},
+  {"time": "2026-10-29T02:11:30Z", "service": "alertmanager", "log_line_id": "L-1007",
+   "what_happened": "Alert resolved"}
+]

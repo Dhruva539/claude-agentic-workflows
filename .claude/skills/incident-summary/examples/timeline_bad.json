@@ -1,0 +1,10 @@
+[
+  {"time": "2026-10-29T02:03:40Z", "service": "payments-api", "log_line_id": "L-1002",
+   "what_happened": "Requests began timing out waiting for a database connection"},
+  {"time": "2026-10-29T02:02:00Z", "service": "payments-api", "log_line_id": "L-1003",
+   "what_happened": "Charge requests returned 504"},
+  {"time": "2026-10-29T02:06:00Z", "service": "database", "log_line_id": "L-1042",
+   "what_happened": "Primary database failed over to replica"},
+  {"time": "2026-10-29T02:09:10Z", "service": "oncall", "log_line_id": "L-1005",
+   "what_happened": ""}
+]

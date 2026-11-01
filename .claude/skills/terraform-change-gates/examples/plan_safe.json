@@ -1,0 +1,10 @@
+{
+  "resource_changes": [
+    {"address": "aws_lambda_function.worker", "type": "aws_lambda_function",
+     "change": {"actions": ["update"], "after": {"memory_size": 1024}}},
+    {"address": "aws_cloudwatch_log_group.worker", "type": "aws_cloudwatch_log_group",
+     "change": {"actions": ["update"], "after": {"retention_in_days": 30}}},
+    {"address": "aws_vpc.main", "type": "aws_vpc",
+     "change": {"actions": ["no-op"], "after": {}}}
+  ]
+}

@@ -62,3 +62,20 @@ graph TD;
     pip install langgraph langgraph-checkpoint-sqlite
     python .claude/skills/loan-application-graph/scripts/loan_graph.py start A-100
     python .claude/skills/loan-application-graph/scripts/loan_graph.py resume A-100 approve
+
+## gated-chains, incident-summary, terraform-change-gates
+
+Prompt chains with gates between steps. `gated-chains` defines the gate types
+(script, rule, judge, human), the exit-code contract (0 pass, 1 retry,
+2 escalate) and `gate_runner.py`, which enforces a retry budget, fails closed
+on crashes and timeouts, and writes an audit log.
+
+- `incident-summary`: alert and logs to an on-call summary. Gates reject
+  invented log ids, out-of-order events and uncited claims; `summary-checker`
+  is the judge agent.
+- `terraform-change-gates`: fmt/validate/plan gate, then a rule gate on the plan
+  that escalates any delete or replace, world-open ingress (other than 80/443)
+  and oversized blast radius. `pr-reviewer` is the judge agent. Never runs apply.
+
+Each skill has sample data in `examples/` to try the gates on.
+Not built yet: refund-triage and snyk-fix skills.

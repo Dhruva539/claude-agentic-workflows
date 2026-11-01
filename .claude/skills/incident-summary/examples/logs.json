@@ -1,0 +1,16 @@
+[
+  {"id": "L-1001", "time": "2026-10-29T02:01:12Z", "service": "deploy-bot", "level": "INFO",
+   "message": "Deployed payments-api v2.41.0 (hikari.maximumPoolSize 20 -> 5)"},
+  {"id": "L-1002", "time": "2026-10-29T02:03:40Z", "service": "payments-api", "level": "WARN",
+   "message": "HikariPool-1 - Connection is not available, request timed out after 30000ms"},
+  {"id": "L-1003", "time": "2026-10-29T02:04:05Z", "service": "payments-api", "level": "ERROR",
+   "message": "POST /v1/charges 504 upstream timeout, p99=31200ms"},
+  {"id": "L-1004", "time": "2026-10-29T02:04:30Z", "service": "alertmanager", "level": "ALERT",
+   "message": "FIRING PaymentsLatencyHigh: p99 > 5s for 2m"},
+  {"id": "L-1005", "time": "2026-10-29T02:09:10Z", "service": "oncall", "level": "INFO",
+   "message": "Rollback to payments-api v2.40.3 started"},
+  {"id": "L-1006", "time": "2026-10-29T02:10:02Z", "service": "payments-api", "level": "INFO",
+   "message": "HikariPool-1 - Pool stats (total=20, active=7, idle=13, waiting=0)"},
+  {"id": "L-1007", "time": "2026-10-29T02:11:30Z", "service": "alertmanager", "level": "ALERT",
+   "message": "RESOLVED PaymentsLatencyHigh"}
+]
