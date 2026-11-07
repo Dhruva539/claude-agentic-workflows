@@ -79,3 +79,12 @@ on crashes and timeouts, and writes an audit log.
 
 Each skill has sample data in `examples/` to try the gates on.
 Not built yet: refund-triage and snyk-fix skills.
+
+## learning-notes
+
+Study notes with diagrams, written while learning: Databricks basics, the context window and tool use, dynamic tool loading, summarizing conversations without vague assumptions, semantic validation gates, writing clear instructions, and lessons from the Understand Anything repo. Start at `learning-notes/00-databricks-basics.md`.
+
+Two runnable demos in `learning-notes/examples/`:
+
+    python learning-notes/examples/dynamic_tools_demo.py selftest   # offline
+    python learning-notes/examples/semantic_gate_demo.py            # offline, keyword-stub judge
