@@ -79,3 +79,17 @@ on crashes and timeouts, and writes an audit log.
 
 Each skill has sample data in `examples/` to try the gates on.
 Not built yet: refund-triage and snyk-fix skills.
+
+## study-coach, subagent-delegation, router-agent, tool-chain
+
+Small sample skills for common agent patterns. All use only the portable
+`name` and `description` frontmatter fields.
+
+- `study-coach`: short explanations, quizzes and a weak-spot list (`quiz-formats.md` loads on demand).
+- `subagent-delegation`: send broad file reading to a subagent and keep only a short summary.
+- `router-agent`: classify a request and hand it to one specialist.
+  `examples/complexity_router.py` routes simple tasks to one cheap call and
+  complex tasks to a five-agent orchestration, escalating when unsure.
+- `tool-chain`: fixed pipeline where each step is checked before the next runs.
+
+Notes from the session that produced them: `learning/2026-11-11-agent-design-notes.md`.
